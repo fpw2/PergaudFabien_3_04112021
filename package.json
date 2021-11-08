@@ -1,0 +1,22 @@
+{
+  "name": "pergaudfabien_3_04112021",
+  "version": "1.0.0",
+  "description": "Site 100% mobile qui répertorie les menus de restaurants gastronomiques.",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpw2/PergaudFabien_3_04112021.git"
+  },
+  "author": "Pergaud Fabien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fpw2/PergaudFabien_3_04112021/issues"
+  },
+  "homepage": "https://github.com/fpw2/PergaudFabien_3_04112021#readme",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

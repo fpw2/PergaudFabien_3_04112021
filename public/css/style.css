@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/*****************
+ORDRE A RESPECTER
+*****************/
+/*1**utils*/
+/*2**feuilles de style de tiers (vendors)*/
+/*3**base*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background: #FF79DA;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.logo, h1, h2, h3, h4, h5, h6 {
+  font-family: "Shrikhand", sans-serif;
+}
+
+/*4**components*/
+/*5**layout*/
+.header {
+  background: #FF79DA;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.header__logo {
+  font-size: 7rem;
+  color: #FF79DA;
+  margin-left: 10rem;
+  text-shadow: 0.55rem 0.55rem #fff;
+}
+
+.nav {
+  padding-right: 6rem;
+  flex: 2 1 auto;
+  text-align: right;
+}
+.nav__link {
+  display: inline;
+  font-size: 3rem;
+  padding-left: 1.5rem;
+}
+.nav__link a {
+  text-decoration: none;
+  color: #D6FFF5;
+}
+.nav__link--active {
+  color: #FF79DA;
+}
+.nav__link--active:hover {
+  cursor: default;
+  color: #FF79DA;
+}
+.nav__link a:hover {
+  color: #fff;
+}
+
+.container {
+  margin: 6rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.form {
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+.form__heading {
+  width: 100%;
+  color: #fff;
+  text-shadow: 0.55rem 0.55rem #782cd3;
+  background: #9356DC;
+  line-height: 5rem;
+  padding: 1.5rem;
+}
+.form__field label {
+  color: #D6FFF5;
+  display: block;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding-top: 1.5rem;
+}
+.form__field input {
+  width: 100%;
+  background: #FF79DA;
+  padding: 1.5rem;
+  color: #D6FFF5;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 2.75rem;
+  background-color: #FF79DA;
+  color: #9356DC;
+}
+.form__field textarea {
+  width: 100%;
+  color: #9356DC;
+  background: #FF79DA;
+  outline: none;
+  padding: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/*6**pages*/
+/*7**thèmes*/
+
+/*# sourceMappingURL=style.css.map */
