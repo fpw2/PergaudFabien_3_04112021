@@ -1,3 +1,55 @@
 .btn {
-    @include btn
+    color: $colour-white;
+    background: $colour-btn;
+    border: none ;
+    border-radius: 20px;
+    padding: 11px 18px 11px 18px;
+    box-shadow: 0px 5px 20px #999;
+    position: relative;
+    z-index: 1;
+    
+    &:hover {
+        &::after {
+            opacity: 1;
+            box-shadow: 0px 0px 10px rgb(141, 138, 138);
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;  
+        left: 0;
+        background: linear-gradient(172deg,
+        lighten(rgb(255,121,218),5) 0%,
+        lighten(rgb(214,108,219),5) 39%,
+        lighten(rgb(171,94,220),5) 85%,
+        lighten(rgb(147,86,220),5)  100%);
+        opacity: 0;
+        z-index: -1;
+        border-radius: 40px;
+        transition: opacity 250ms;
+    }
+    &-number {
+        color: $colour-white;
+        background: $colour-primary;
+        border: none ;
+        border-radius: 20px;
+        padding: 5px 9px;
+        position: absolute;
+        left: -12px;
+        top: 20px;
+    }
+    &-menu {
+        background-color: $light-gray;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px #999;
+        &:hover {
+            background-color: $light-primary;
+        }
+        &:hover .icon {
+            color:$colour-primary !important;
+        }
+    }
 }

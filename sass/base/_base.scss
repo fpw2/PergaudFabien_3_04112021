@@ -1,17 +1,40 @@
-*,
-*::after,
-*::before {
+* {
     margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box
 }
 
-html {
-    // 10px div by def of 16px
-    font-size: 62.5%;
+a {
+    text-decoration: none;
+    color: black;
 }
 
-body {
-    box-sizing: border-box;
-    background: $colour-secondary;
+.flex {
+    display: flex;
 }
+
+.inline {
+    display: inline;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.relative {
+    position: relative;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+

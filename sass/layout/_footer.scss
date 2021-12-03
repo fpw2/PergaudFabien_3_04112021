@@ -1,0 +1,34 @@
+footer {
+    background-color: $dark-gray;
+    color: $light-gray;
+}
+.footer {
+    margin: 0px 10px 0px 0px;
+    padding-bottom: 20px;
+}
+.footer>div {
+    padding: 15px 0px 0px 0px;
+}
+.link>div {
+    padding: 5px 0px 5px 10px;
+}
+.fa-utensils {
+    padding-right: 16px;
+}
+.fa-hands-helping {
+    padding-right: 10px;
+}
+.link>p {
+    padding: 5px 0px 10px 10px;
+}
+.link>a {
+    padding-left: 10px;
+    color: $light-gray;
+
+}
+.logo-sm img{
+    padding: 0px 0px 0px 10px;
+    max-width: 100%;
+    height: 15px;
+    filter: invert(100%); // mon logo noir devient blanc
+}

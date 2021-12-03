@@ -1,0 +1,338 @@
+/******************************
+            HEADER
+******************************/
+header {
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        height: 40px;
+        margin: 10px 0px;
+    }
+}
+
+.header_bloc {
+    background-color: $light-gray;
+    margin-bottom: 40px;
+    padding: 20px;
+
+    .position {
+        margin-bottom: 40px;
+    }
+
+    i {
+        padding-right: 10px;
+    }
+
+    p {
+        color: $normal-gray;
+    }
+
+    button {
+        margin: 30px auto;
+    }
+}
+
+/******************************
+        MAIN FONCTIONING
+******************************/
+#fonctioning {
+    margin: 40px 10px;
+
+
+
+    .functioning {
+        display: flex;
+        flex-direction: column;
+
+        @include media-min(desktop) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .btn-menu {
+            margin: 10px;
+
+            i {
+                padding: 25px 0px 25px 30px;
+                color: $normal-gray;
+            }
+
+            p {
+                font-weight: bold;
+                padding-left: 20px;
+
+                @include media-min(desktop) {
+                    padding: 25px 5px;
+                }
+            }
+        }
+    }
+}
+
+/******************************
+      SECTION RESTAURANT
+******************************/
+// carte restaurant
+#restaurant {
+    background-color: $light-gray;
+    padding: 40px 0px;
+
+    .restaurant {
+        @include media-min(desktop) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        a {
+            @include media-min(desktop) {
+                flex: 1 50%;
+            }
+        }
+
+        .card-restaurant {
+            position: relative;
+            height: 400px;
+            margin: 20px 15px;
+            background-color: white;
+            box-shadow: 0px 5px 20px #999;
+            border-radius: 20px;
+
+            .card-img {
+                height: 78%;
+                /*permet de ne pas voir ce qui dépasse de notre image de notre bloc*/
+                overflow: hidden;
+                border-top-right-radius: 20px;
+                border-top-left-radius: 20px;
+
+                /* permet d'avoir mon image centré dans mon bloc*/
+                img {
+                    /*permet d'avoir toutes nos images qui remplissent notre bloc peut importe leur taille*/
+                    height: 100%;
+                    width: 100%;
+                    /*adapte notre image à notre bloc pour éviter qu'elle soit floue*/
+                    object-fit: cover;
+                }
+            }
+
+            .card-body {
+                padding: 20px 0px 0px 10px;
+
+                .heart_bloc {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                /* animation du bouton j'aime */
+                .heart {
+                    margin: -10px 30px 0px 0px;
+                    font-size: 25px;
+                    position: relative;
+                }
+
+                // phase initiale
+                .full-heart {
+                    opacity: 0;
+                }
+
+                .full-heart {
+                    position: absolute;
+                    opacity: 1;
+                    content: "";
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(0deg, #9356DC, #FF79DA);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+                .empty-heart::after {
+                    opacity: 1;
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                // phase finale
+                .full-heart:hover {
+                    opacity: 1;
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(0deg, #9356DC, #FF79DA);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                }
+
+                .empty-heart:hover::after {
+                    opacity: 0;
+                }
+
+                /* fin animamtion bouton j'aime */
+
+                .card-place {
+                    color: $normal-gray;
+                    padding-top: 10px;
+                }
+
+                .new {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    font-weight: bold;
+                    background-color: $colour-tertiary;
+                    padding: 5px 10px 5px 10px;
+
+                    span {
+                        color: $dark-tertiary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+height: 0%;
+transition: all 0.3s linear 0s;
+background-color: blue;
+&:hover {
+    &::after {
+        height: 100%;*/
+
+
+.progress {
+    display: block;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    position: relative;
+    background-color: rgb(122, 115, 115);
+
+    &::after {
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background-color: $colour-btn;
+        transition: all 0.3s linear 0s;
+    }
+
+    &:hover {
+        &::after {
+            height: 100%;
+        }
+    }
+
+}
+
+
+/*****
+loader
+*****/
+.screen-loader {
+    //z-index: 9999;
+    //background-color: $dark-gray;
+    overflow: hidden;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: screen-loader 5s forwards;
+
+    top: 0;
+    left: 0;
+}
+
+.load {
+    width: $size*10;
+    height: $size*7.5;
+    display: flex;
+    justify-content: space-evenly;
+
+    &__bar {
+        height: 100%;
+        border-radius: 40px;
+        width: $size;
+        // animation-name : bars
+        // animation-duration : $animation-duration
+        // animation-timing-function : ease-in-out (effet de vague)
+        // animation-delay : none
+        // animation-iteration-count : infinite (permet de tourner en boucle)
+        // animation-direction : alternate (permet de faire des allers retour)
+        // animation-fill-mode: backwards (permet que notre animation démarre avec notre scale à 0.5 (pris en compte avant))
+        // animation-play-state: none
+        animation: bars $animation-duration ease-in-out infinite alternate backwards;
+
+        // .load__bar--1 à 5 
+        @for $i from 1 to 5 {
+            &--#{$i} {
+                animation-delay: $animation-delay * $i;
+                background-color: $colour-primary;
+            }
+
+            &--#{$i}-inv {
+                animation-delay: $animation-delay * $i;
+                animation-direction: alternate-reverse;
+                animation-fill-mode: forwards;
+                background-color: $colour-secondary;
+            }
+
+            &:hover {
+                animation-play-state: paused; // pour mettre en pause mon animation
+            }
+
+        }
+    }
+}
+
+.heart {
+    position: relative;
+    height: 100px;
+    width: 60px;
+    background: #d16ba5;
+    border-radius: 100px 100px 0 0;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    cursor: pointer
+}
+
+.heart:before {
+    content: '';
+    position: absolute;
+    background: #d16ba5;
+    height: 100px;
+    width: 60px;
+    transform: rotate(-90deg);
+    border-radius: 100px 100px 0 0;
+    left: -20px;
+    top: 20px;
+    transition: all 0.5s
+}
+
+.heart:hover {
+    background: linear-gradient(0deg, #9356DC, #FF79DA);
+}
+
+.heart:hover::before {
+    background: linear-gradient(0deg, #9356DC, #FF79DA);
+}

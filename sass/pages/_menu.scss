@@ -1,0 +1,132 @@
+#menu_1 {
+    header {
+        i {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: $dark-gray;
+            font-size: 30px;
+        }
+    }
+
+    .banner {
+        width: 100%;
+        height: 100%;
+    }
+
+    .header_menu {
+        position: absolute;
+        top: 80%;
+        background-color: $light-gray;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+
+        .title_menu {
+            padding: 20px 0px 0px 15px;
+            justify-content: space-between;
+            i {
+                padding: 15px 30px 0px 0px;
+                font-size: 25px;
+            }
+        }
+
+        .card-menu {
+            padding-top: 30px;
+
+            h2 {
+                font-size: 1.1rem;
+                color: $normal-gray;
+                font-weight: 500;
+                padding: 0px 0px 5px 10px;
+            }
+
+            p {
+
+                span {
+                    content: "";
+                    width: 45px;
+                    height: 3px;
+                    position: absolute;
+                    left: 10px;
+                    background-color: $colour-tertiary;
+                }
+            }
+
+            /* animation check box */
+            .menu_bloc {
+                display: flex;
+                margin: 15px 10px 10px 10px;
+                background-color: $colour-white;
+                border-radius: 15px;
+                cursor: pointer;
+                // pour que mon bloc animation ne soit pas visible du border
+                overflow: hidden;
+
+                .entitled {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 10px;
+                    width: 100%;
+
+                    .flex_menu {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 5px 0px 0px 0px;
+                        margin: 0px;
+
+                        .entitled_menu_following {
+                            color: $normal-gray;
+                        }
+
+                        .price {
+                            font-weight: bold;
+                            padding-right: 5px;
+                            padding-left: 10px;
+                        }
+
+                    }
+                }
+
+                /* animation check box du menu */
+                // ma div fait 0 de largeur
+                .box {
+                    width: 0%;
+
+                    .fa-check-circle {
+                        color: white;
+                        padding: 20px 23px;
+                        transition: transform 0.5s ease-in-out;
+                    }
+                }
+
+                // au survol de mon menu 
+                &:hover .box {
+                    transition: 1s ease;
+                    // j'aggrandis ma div à 100px au survol
+                    width: 100px;
+                    background-color: $colour-tertiary;
+
+                }
+
+                // je fais tourner mon icône check d'un tour sur lui-même
+                &:hover .fa-check-circle {
+                    transform: rotate(1turn);
+                }
+
+
+            }
+        }
+
+        button {
+            padding: 20px;
+            border-radius: 45px;
+            width: 50%;
+            align-self: center;
+            margin: 40px 0px 100px 0px;
+        }
+    }
+}
+
