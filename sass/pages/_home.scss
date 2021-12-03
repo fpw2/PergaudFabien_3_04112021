@@ -132,55 +132,33 @@ header {
                     position: relative;
                 }
 
-                // phase initiale
-                .full-heart {
-                    opacity: 0;
-                }
-
                 .full-heart {
                     position: absolute;
-                    opacity: 1;
-                    content: "";
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(0deg, #9356DC, #FF79DA);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                }
-
-                .empty-heart::after {
-                    opacity: 1;
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                }
-
-                // phase finale
-                .full-heart:hover {
-                    opacity: 1;
-                    position: absolute;
-                    content: "";
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(0deg, #9356DC, #FF79DA);
-                    -webkit-background-clip: text;
+                    right: 10px;
+                    // permet de rendre mon icône transparent
                     -webkit-text-fill-color: transparent;
 
+                    &:hover {
+                        animation: fadein 1s;
+                        z-index: 1;
+                        cursor: grabbing;
+                        // respecter l'ordre pour que le bacground marche sur l'icône
+                        background: linear-gradient(to top right, $colour-primary, $colour-secondary);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
                 }
 
-                .empty-heart:hover::after {
-                    opacity: 0;
-                }
+                .empty-heart {
+                    position: absolute;
+                    right: 10px;
 
+                    &:hover {
+                        z-index: -1;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
                 /* fin animamtion bouton j'aime */
 
                 .card-place {
@@ -240,99 +218,4 @@ background-color: blue;
         }
     }
 
-}
-
-
-/*****
-loader
-*****/
-.screen-loader {
-    //z-index: 9999;
-    //background-color: $dark-gray;
-    overflow: hidden;
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: screen-loader 5s forwards;
-
-    top: 0;
-    left: 0;
-}
-
-.load {
-    width: $size*10;
-    height: $size*7.5;
-    display: flex;
-    justify-content: space-evenly;
-
-    &__bar {
-        height: 100%;
-        border-radius: 40px;
-        width: $size;
-        // animation-name : bars
-        // animation-duration : $animation-duration
-        // animation-timing-function : ease-in-out (effet de vague)
-        // animation-delay : none
-        // animation-iteration-count : infinite (permet de tourner en boucle)
-        // animation-direction : alternate (permet de faire des allers retour)
-        // animation-fill-mode: backwards (permet que notre animation démarre avec notre scale à 0.5 (pris en compte avant))
-        // animation-play-state: none
-        animation: bars $animation-duration ease-in-out infinite alternate backwards;
-
-        // .load__bar--1 à 5 
-        @for $i from 1 to 5 {
-            &--#{$i} {
-                animation-delay: $animation-delay * $i;
-                background-color: $colour-primary;
-            }
-
-            &--#{$i}-inv {
-                animation-delay: $animation-delay * $i;
-                animation-direction: alternate-reverse;
-                animation-fill-mode: forwards;
-                background-color: $colour-secondary;
-            }
-
-            &:hover {
-                animation-play-state: paused; // pour mettre en pause mon animation
-            }
-
-        }
-    }
-}
-
-.heart {
-    position: relative;
-    height: 100px;
-    width: 60px;
-    background: #d16ba5;
-    border-radius: 100px 100px 0 0;
-    transform: rotate(45deg);
-    transition: all 0.5s;
-    cursor: pointer
-}
-
-.heart:before {
-    content: '';
-    position: absolute;
-    background: #d16ba5;
-    height: 100px;
-    width: 60px;
-    transform: rotate(-90deg);
-    border-radius: 100px 100px 0 0;
-    left: -20px;
-    top: 20px;
-    transition: all 0.5s
-}
-
-.heart:hover {
-    background: linear-gradient(0deg, #9356DC, #FF79DA);
-}
-
-.heart:hover::before {
-    background: linear-gradient(0deg, #9356DC, #FF79DA);
 }

@@ -11,11 +11,74 @@
 }
 
 @keyframes screen-loader {
-    to {
+    50% {
+        top: 0%;
+    }
+
+    100% {
         opacity: 0;
+        top: 100%;
     }
 }
 
+.screen-loader {
+    z-index: 9999;
+    background-color: $dark-gray;
+    opacity: 0.8;
+    overflow: hidden;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: screen-loader 5s forwards 3s;
+    top: 0;
+    left: 0;
+}
+
+.load {
+    width: $size*10;
+    height: $size*7.5;
+    display: flex;
+    justify-content: space-evenly;
+
+    &__bar {
+        height: 100%;
+        border-radius: 40px;
+        width: $size;
+        // animation-name : bars
+        // animation-duration : $animation-duration
+        // animation-timing-function : ease-in-out (effet de vague)
+        // animation-delay : none
+        // animation-iteration-count : infinite (permet de tourner en boucle)
+        // animation-direction : alternate (permet de faire des allers retour)
+        // animation-fill-mode: backwards (permet que notre animation démarre avec notre scale à 0.5 (pris en compte avant))
+        // animation-play-state: none
+        animation: bars $animation-duration ease-in-out infinite alternate backwards;
+
+        // .load__bar--1 à 5 
+        @for $i from 1 to 5 {
+            &--#{$i} {
+                animation-delay: $animation-delay * $i;
+                background-color: $colour-primary;
+            }
+
+            &--#{$i}-inv {
+                animation-delay: $animation-delay * $i;
+                animation-direction: alternate-reverse;
+                animation-fill-mode: forwards;
+                background-color: $colour-secondary;
+            }
+
+            &:hover {
+                animation-play-state: paused; // pour mettre en pause mon animation
+            }
+
+        }
+    }
+}
 
 // heart
 @keyframes progress-heart {
@@ -24,22 +87,18 @@
     }
 
     39% {
-        background-color: rgb(255, 121, 218, );
         height: 39%;
     }
 
     85% {
-        background-color: rgb(214, 108, 219);
         height: 85%;
     }
 
     80% {
-        background-color: rgb(171, 94, 220);
         height: 80%;
     }
 
     100% {
-        background-color: rgb(147, 86, 220);
         height: 100%;
     }
 }
@@ -47,11 +106,13 @@
 // affichage menu
 @keyframes fadein {
     from {
+        //height: 0%; // remplissage icône de haut en bad
         opacity: 0;
         margin-top: 10%;
     }
 
     to {
+        //height: 100%;
         opacity: 1;
     }
 }
@@ -59,9 +120,8 @@
 .fadein {
     @for $i from 1 to 10 {
         &_#{$i} {
-            animation-name: fadein ;
+            animation-name: fadein;
             animation-duration: 1s*$i;
         }
     }
 }
-
