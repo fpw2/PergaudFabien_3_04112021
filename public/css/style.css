@@ -496,10 +496,12 @@ button {
 
 @keyframes fadein {
   from {
+    height: 0%;
     opacity: 0;
     margin-top: 10%;
   }
   to {
+    height: 100%;
     opacity: 1;
   }
 }
@@ -794,36 +796,6 @@ header img {
 }
 #restaurant .restaurant .card-restaurant .card-body .new span {
   color: #278b72;
-}
-
-/*
-height: 0%;
-transition: all 0.3s linear 0s;
-background-color: blue;
-&:hover {
-    &::after {
-        height: 100%;*/
-.progress {
-  display: block;
-  width: 100%;
-  height: 100px;
-  z-index: 1;
-  position: relative;
-  background-color: #7a7373;
-}
-.progress::after {
-  content: "";
-  position: absolute;
-  height: 0;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background-color: linear-gradient(172deg, #ff79da 0%, #d66cdb 39%, #ab5edc 85%, #9356dc 100%);
-  transition: all 0.3s linear 0s;
-}
-.progress:hover::after {
-  height: 100%;
 }
 
 #menu_1 header i {
